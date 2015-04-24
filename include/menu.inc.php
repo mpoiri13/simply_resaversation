@@ -1,4 +1,4 @@
-<?php include ('parametres.php'); ?>
+
 <!DOCTYPE html>
 <html>
 	<nav id="menu">
@@ -6,8 +6,8 @@
 			<ul id="onglets">
 				<?php
 				
-				if (!empty($iTypeUtilisateur)){
-				switch ($iTypeUtilisateur)
+				if (!empty($_SESSION['droit'])){
+				switch ($_SESSION['droit'])
 				{ 
 					case null:
 					break;
@@ -25,12 +25,13 @@
 						<li><a href="ReservationsRestaurateur.html"> Mes Réservations R</a></li>
 					<?php break;
 					
-					case "4" OR "6": // Moderateur ou Administrateur : A créer
+					case "1": // Moderateur ou Administrateur : A créer
 					?>
 						<li><a href="CompteModerateur.html"> Mon Compte M</a></li>
 						<li><a href="OffresModerateur.html"> Offres M</a></li>
 						<li><a href="RestaurantsModerateur.html"> Restaurants M</a></li>
 						<li><a href="RestaurateursModerateur.html"> Restaurateurs M</a></li>
+						<li><a href="InscriptionMembres.html"> Inscrire un membre</a></li>
 					<?php break;
 					
 					default:
